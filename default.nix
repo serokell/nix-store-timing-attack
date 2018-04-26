@@ -1,19 +1,23 @@
 with import <nixpkgs> {};
 
-stdenv.mkDerivation {
-  name = "cache-timing-attack";
+stdenv.mkDerivation rec {
+  name = "nix-cache-timing-attack";
 
-  buildInputs = [ nix.perl-bindings perl perlPackages.DBDSQLite perlPackages.TimeHiRes ];
+  nativeBuildInputs = [ makeWrapper ];
+
+  buildInputs = [
+    nix.perl-bindings
+    perl
+    perlPackages.DBDSQLite
+    perlPackages.TimeHiRes
+  ];
 
   unpackPhase = ":";
 
-  inherit perl;
-  script = ./script.pl;
-
   installPhase = ''
     mkdir -p $out/bin
-    substituteAll ${./wrapper.sh} $out/bin/cache-timing-attack
-    chmod +x $_
-    substituteInPlace $_ --subst-var-by PERL5LIB $PERL5LIB
+    makeWrapper ${perl}/bin/perl $out/bin/${name} \
+      --add-flags ${./script.pl} \
+      --set PERL5LIB $PERL5LIB
   '';
 }

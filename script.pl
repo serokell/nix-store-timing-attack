@@ -12,7 +12,6 @@ for (my $i = 0; $i < 1_000_000; $i++) {
 my $elapsedTime = tv_interval($startTime);
 print("zeroed out hash: $elapsedTime\n");
 
-
 my $hashPart = "lp7x6ziq5b2zihgad0i8a28xxvz5vnrr";
 my $startTime = [gettimeofday];
 
