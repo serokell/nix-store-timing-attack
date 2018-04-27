@@ -11,3 +11,9 @@ same data center).
 
 1% accounts for SQLite lookup, and the other 2% seem to be caused by this check:
 https://github.com/NixOS/nix/blob/d34fa2bcc3572fafc893755cee19d97aed7ec649/src/libstore/local-store.cc#L829
+
+Proposed mitigations:
+
+* making string comparison in `local-store.cc#L829` constant-time
+* keeping track of how long does `queryPathFromHashPart` take and
+  making it always return at least after that amount of time
