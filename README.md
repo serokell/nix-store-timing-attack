@@ -47,6 +47,7 @@ Build via `nix-shell -p gcc pkgconfig sqlite --run 'gcc cache-timing-attack.c $(
 * making string comparison in `local-store.cc#L829` constant-time
 * keeping track of how long does `queryPathFromHashPart` take and
   making it always return at least after that amount of time
+  (this can be done in Hydra and nix-serve)
 * alternatively, making it clear that binary caches have this property
 
 ### Disclosure
