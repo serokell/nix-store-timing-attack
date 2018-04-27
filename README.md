@@ -40,6 +40,8 @@ int main() {
 }
 ```
 
+Build via `nix-shell -p gcc pkgconfig sqlite --run 'gcc cache-timing-attack.c $(pkg-config --cflags --libs sqlite3)'`.
+
 ### Proposed mitigations
 
 * making string comparison in `local-store.cc#L829` constant-time
