@@ -8,3 +8,6 @@ and replace that hash and half-zeroed hash accordingly to any other hash.
 I'm getting approximately 3% difference between zeroed out hash and existing hash,
 this seems to be enough to be abusable over LAN (e.g. by renting an instance in the
 same data center).
+
+1% accounts for SQLite lookup, and the other 2% seem to be caused by this check:
+https://github.com/NixOS/nix/blob/d34fa2bcc3572fafc893755cee19d97aed7ec649/src/libstore/local-store.cc#L829
