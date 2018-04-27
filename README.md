@@ -11,7 +11,7 @@ this seems to be enough to be abusable over LAN (e.g. by renting an instance in 
 same data center).
 
 1% accounts for SQLite lookup, and the other 2% seem to be caused by this check:
-https://github.com/NixOS/nix/blob/d34fa2bcc3572fafc893755cee19d97aed7ec649/src/libstore/local-store.cc#L829
+https://github.com/NixOS/nix/blob/d34fa2bcc3572fafc893755cee19d97aed7ec649/src/libstore/local-store.cc#L830
 
 Isolated SQLite timing test for the query used by `queryPathFromHashPart`
 (has to run as root):
@@ -48,7 +48,7 @@ Build via `nix-shell -p gcc pkgconfig sqlite --run 'gcc cache-timing-attack.c $(
 
 ### Proposed mitigations
 
-* making string comparison in `local-store.cc#L829` constant-time
+* making string comparison in `local-store.cc#L830` constant-time
 * keeping track of how long does `queryPathFromHashPart` take and
   making it always return at least after that amount of time
   (this can be done in Hydra and nix-serve)
