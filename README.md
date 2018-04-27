@@ -30,8 +30,12 @@ int main() {
 
    sqlite3_prepare(db, "select path from ValidPaths where path >= ? limit 1;", 1000, &stmt, &tail);
 
-   // Uncomment one of two lines:
+   /* Uncomment one of two: */
+   
+   // zeroed out hash
    // sqlite3_bind_text(stmt, 1, "/nix/store/00000000000000000000000000000000", -1, SQLITE_STATIC);
+   
+   // ruby hash (replace with any existing hash)
    // sqlite3_bind_text(stmt, 1, "/nix/store/zdp5pffzl7yiy1qgnj33kcbbxmz7p48p", -1, SQLITE_STATIC);
 
    sqlite3_step(stmt);
