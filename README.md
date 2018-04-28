@@ -47,7 +47,7 @@ int main() {
 Build via:
 
 ```
-$ nix-shell -p gcc pkgconfig sqlite --run 'gcc binary-cache-timing-attack.c $(pkg-config --cflags --libs sqlite3)'
+$ nix-shell -p gcc pkgconfig sqlite --run 'cc binary-cache-timing-attack.c $(pkg-config --cflags --libs sqlite3)'
 ```
 
 ### Proposed mitigations
