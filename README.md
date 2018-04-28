@@ -57,4 +57,4 @@ Build via `nix-shell -p gcc pkgconfig sqlite --run 'gcc cache-timing-attack.c $(
 ### Disclosure
 
 If at all possible, it would be nice to give us some time to fix
-[nix-cache](https://github.com/serokell/nix-cache).
+[our binary cache implementation](https://github.com/serokell/nix-cache).
