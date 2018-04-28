@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 stdenv.mkDerivation rec {
-  name = "nix-cache-timing-attack";
+  name = "binary-cache-timing-attack";
 
   nativeBuildInputs = [ makeWrapper ];
 
