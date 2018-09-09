@@ -57,8 +57,3 @@ $ nix-shell -p gcc pkgconfig sqlite --run 'cc binary-cache-timing-attack.c $(pkg
   making it always return at least after that amount of time
   (this can be done in Hydra and nix-serve)
 * alternatively, making it clear that binary caches have this property
-
-### Disclosure
-
-If at all possible, it would be nice to give us some time to fix
-[our binary cache implementation](https://github.com/serokell/nix-cache).
