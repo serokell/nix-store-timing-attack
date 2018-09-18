@@ -1,6 +1,5 @@
-I'm not sure how important this is, but here's a timing attack on binary cache that
-allows attacker to recover a potentially private path from cache's Nix store. Maybe
-that's intended, still worth noting.
+Here's a timing attack on binary cache that potentially allows attacker to
+recover a private path from cache's Nix store.
 
 To get the right numbers, `lp7x6ziq5b2zihgad0i8a28xxvz5vnrr` (Python 3.6) has to be
 present in Nix store of the box that's running the test. If it isn't, just edit `script.pl`
